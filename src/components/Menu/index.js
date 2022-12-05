@@ -6,8 +6,6 @@ export const Menu = () => {
   const menuElm = document.createElement('section');
   menuElm.classList.add('menu');
   menuElm.innerHTML = `
-
-
   <div class="container">
     <h2>Naše nabídka</h2>
     <p class="menu-intro">
@@ -78,6 +76,26 @@ export const Menu = () => {
     </div>
   </div>
 `;
+
+  const drinkElm = menuElm.querySelector('.drinks-list');
+  drinkElm.append(
+    Drink({
+      id: 'romano',
+      name: 'Romano',
+      ordered: false,
+      image: 'https://apps.kodim.cz/daweb/cafelora/assets/cups/romano.png',
+      layers: [
+        {
+          color: '#fbdf5b',
+          label: 'citrón',
+        },
+        {
+          color: '#613916',
+          label: 'espresso',
+        },
+      ],
+    }),
+  );
   menuElm.append(Layer({ color: '#feeeca', label: 'mléčná pěna' }));
   menuElm.append(
     Drink({
@@ -85,10 +103,16 @@ export const Menu = () => {
       name: 'Romano',
       ordered: false,
       image: 'https://apps.kodim.cz/daweb/cafelora/assets/cups/romano.png',
-      layers: {
-        color: '#fbdf5b',
-        label: 'citrón',
-      },
+      layers: [
+        {
+          color: '#fbdf5b',
+          label: 'citrón',
+        },
+        {
+          color: '#613916',
+          label: 'espresso',
+        },
+      ],
     }),
   );
   return menuElm;
